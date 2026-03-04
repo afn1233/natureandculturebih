@@ -129,7 +129,7 @@ ANTHROPIC_API_KEY=sk-ant-...
 
 ## 📚 Course
 
-Developed as a final project for the **Software Engineering** course at  
+Developed as a final project for the **AI Software Engineering** course at  
 **International Burch University** — Faculty of Information Technologies  
 Instructor: Assist. Prof. Dr. Becir Isakovic
 
