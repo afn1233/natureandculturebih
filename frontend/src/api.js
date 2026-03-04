@@ -1,8 +1,7 @@
 // api.js - All API calls in one place
 // Every function here talks to the FastAPI backend
 
-const API_URL = ''
-
+const API_URL = 'https://natureandculturebih-production.up.railway.app'
 // Helper to get user ID from localStorage
 const getUserId = () => localStorage.getItem('user_id')
 
