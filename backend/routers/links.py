@@ -3,6 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, desc
 from typing import Optional
 import uuid
+import json
 
 from database import get_db
 from models import TouristLink, WeatherUpdate
@@ -75,7 +76,7 @@ async def create_link(
             url=link_data.url,
             title=link_data.title,
             description=link_data.description,
-            embedding=embedding
+            embedding=json.dumps(embedding)
         )
         db.add(new_link)
         await db.commit()
@@ -122,7 +123,8 @@ async def update_link(
             link.description = link_data.description
 
         text_to_embed = f"{link.title} {link.description or ''} {link.url}"
-        link.embedding = await generate_embedding(text_to_embed)
+        embedding = await generate_embedding(text_to_embed)
+        link.embedding = json.dumps(embedding)
 
         await db.commit()
         await db.refresh(link)

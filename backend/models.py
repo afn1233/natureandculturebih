@@ -2,7 +2,6 @@ import uuid
 from datetime import datetime
 from sqlalchemy import Column, String, Text, DateTime, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID, JSONB
-from pgvector.sqlalchemy import Vector
 from database import Base
 
 
@@ -20,7 +19,7 @@ class TouristLink(Base):
     url = Column(String, nullable=False)
     title = Column(String, nullable=False)
     description = Column(Text, nullable=True)
-    embedding = Column(Vector(1536), nullable=True)
+    embedding = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
